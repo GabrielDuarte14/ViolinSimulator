@@ -1,0 +1,26 @@
+body{
+    background-color: #000000;
+    max-width: calc(100vw - (100vw - 100%));
+    max-height: calc(100vh - (100vh - 100%));
+    color: whitesmoke;
+}
+.violino{
+    width: 100%;
+   
+    display: flex;
+    justify-content: center;
+}
+.imgV{
+    
+    width: 900px;
+    margin-top: 100px;
+    transform: rotate(-20deg);
+}
+.ponto{
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    border-radius: 100px;
+    background-color: red;
+
+}
