@@ -5,14 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Violino Simulator</title>
-    <link rel="stylesheet" href="style.css">
+  
+    <link rel="stylesheet" href="./css/jogar.css">
+    <script src="./scripts/script.js"></script>
 </head>
-<body>
+<body class="tocar" onload="inicializa()">
+  <div class="total">
+    <h1 class="title">Toque agora mesmo!</h1>
     <div class="violino">
-      <img src="./violin-removebg.png" class="imgV" alt="">
-      <div class="ponto" style="top: 164px; right: 448px" onclick="console.log('1ss')" ></div>
-      <div class="ponto" style="top: 175px; right: 488px" ></div>
-      <div class="ponto" style="top: 187px; right: 528px" ></div>
+      <div class="inst">
+      <div class="instTit">Toque com o teclado, cada tecla tem sua nota</div>
+      <div class="lines">Letra A: Dó #S</div>
+      <div class="lines">Letra S: Ré #R</div>
+      <div class="lines">Letra D: Mi #R</div>
+      <div class="lines">Letra F: Fá #R</div>
+      <div class="lines">Letra G: Sol #R</div>
+      <div class="lines">Letra H: Lá #L</div>
+      <div class="lines">Letra J: Si #L</div>
+      <div class="lines">Letra K: Dó #L</div>
+      <div class="lines">Letra L: Ré #L</div>
+      <div class="lines">Letra Z: Mi #M</div>
+      <div class="lines">Letra X: Fá #M</div>
+      <div class="lines">Letra C: Sol #M</div>
+
+      </div>
+      <img src="./imgs/violinnn.png" class="imgV" alt="">
+      <img src="./imgs/arcocerto.png" class="imgA" id="arco" alt="">
+      <div class="ponto" style="top: 149px; right: 188px" id="laS" ></div>
+      <div class="ponto" style="top: 175px; right: 488px" id="siS"></div>
+      <div class="ponto" style="top: 187px; right: 528px" id="doS"></div>
     </div>
+    
+    </div>
+    <div> 
+      
+    </div>
+    
+  </div>
+
+   
 </body>
 </html>

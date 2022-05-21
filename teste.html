@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Movendo elemento</title>
+<style type="text/css">
+*{padding:0; margin:0;}
+#elemento{
+  border:1px solid #FF0000; 
+  width:180px; 
+  height:80px;
+  position:absolute; /* importante */
+}
+#btnMover{ border:1px solid #CCC; }
+</style>
+<script>
+function move(elem, duracao) {
+  // altura do botao
+  var btnH	= document.getElementById('btnMover').offsetHeight;
+  // valor da posição a esquerda do elemento
+  var left 	= elem.clientLeft;
+  // valor da posição topo do elemento
+  var top       = btnH - elem.clientTop;
+  // função a ser chamada até chegar a posição informada
+  function deslocamento() {
+    // incrementando contador
+    left++;
+    top++;
+    // aplicando estilo no elemento
+    elem.style.left = left + 'px';
+    elem.style.top  = top + 'px';
+    // verificando se chegou ao ponto desejado
+    if (left == 200 || top == 200)
+      // interrompe o processo de deslocamento 
+      clearInterval(id);
+    }
+   // desloca o elemento até 10 segundos
+   // aumentando o valor, vai demorar mais para chegar
+   var id = setInterval(deslocamento, duracao);
+}
+</script>
+</head>
+<body>
+<input type="button" id="btnMover" value="Mover" onclick="move(this.nextElementSibling, 10)">
+<div id="elemento">clique para mover</div>
+</body>
+</html>      
