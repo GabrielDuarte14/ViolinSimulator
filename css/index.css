@@ -1,0 +1,38 @@
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../imgs/background.jpg');
+    background-size: cover;
+    width: calc(100vw - 100%);
+    height: 100vh ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+.total{
+    width: calc(100vw - 100%);
+    height:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.total img{
+    width: 410px;
+  
+}
+
+.total button{
+    width: 200px;
+    height: 50px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+
+}
