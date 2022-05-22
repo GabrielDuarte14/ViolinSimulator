@@ -7,6 +7,7 @@
     <title>Login | Violin Simulator</title>
     <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/cadastro.css">
+    <script src="./scripts/login.js"></script>
     <script src="./scripts/cadastro.js"></script>
 </head>
 <body>
@@ -26,8 +27,13 @@
                 <img src="./imgs/view.png" id="verS" onclick="verSenha()"  alt="">
                 </div>
             </div>
-           
-            <button class="cadastrar">
+            <div id="msgErro" class="erro">
+                Email incorreto
+            </div>
+            <div id="espera" style="display: none;">
+                <img style="width: 150px;"src="./imgs/carregando.gif" alt="">
+            </div>
+            <button onclick="entrar()" class="cadastrar">
                 Login
             </button>
         </div>

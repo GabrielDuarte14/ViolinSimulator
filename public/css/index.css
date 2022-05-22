@@ -48,3 +48,18 @@ body{
     cursor: pointer;
 
 }
+.total button:hover{
+    background-color: whitesmoke;
+    color: black;
+    border: 2px solid black;
+}
+.total button a{
+    text-decoration: none !important;
+    color: inherit;
+    height: 100%;
+    width: 100%;
+    
+}
+a:visited{
+    color: whitesmoke;
+}

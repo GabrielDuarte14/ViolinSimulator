@@ -42,9 +42,16 @@
                 <img src="./imgs/view.png" onclick="verConfSenha()" id="verC" alt="">
                 </div>
             </div>
-            <button class="cadastrar">
+            <div id="msgErro" class="erro">
+                Email incorreto
+            </div>
+            <div id="espera" style="display: none;">
+                <img style="width: 150px;"src="./imgs/carregando.gif" alt="">
+            </div>
+            <button onclick="cadastrar()" class="cadastrar">
                 Cadastrar
             </button>
+          
         </div>
     </div>
 </body>
