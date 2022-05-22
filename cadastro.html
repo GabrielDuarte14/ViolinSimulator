@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Violin Simulator</title>
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <script src="./scripts/cadastro.js"></script>
+    <link rel="shortcut icon" href="./imgs/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <h1>Cadastre-se</h1>
+            <h2>E venha tocar conosco</h2>
+            <div class="linha">
+                <label>Nome: </label>
+                <div class="inpt">
+                <input type="text" name="nome" id="nome" placeholder="Nome">
+            </div>
+                       </div>
+            <div class="linha">
+                <label>Email: </label>
+                <div class="inpt">
+                <input type="text" name="email" id="email" placeholder="email@email.com">
+            </div>
+            </div>
+            <div class="linha">
+                <label>Senha: </label>
+                <div class="inpt">
+                <input type="password" name="senha" id="senha" placeholder="******">
+                <img src="./imgs/view.png" id="verS" onclick="verSenha()"  alt="">
+                </div>
+            </div>
+            <div class="linha">
+                <label>Confirmar Senha: </label>
+                <div class="inpt">
+                <input type="password" name="cSenha"  id="cSenha" placeholder="******">
+                <img src="./imgs/view.png" onclick="verConfSenha()" id="verC" alt="">
+                </div>
+            </div>
+            <button class="cadastrar">
+                Cadastrar
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

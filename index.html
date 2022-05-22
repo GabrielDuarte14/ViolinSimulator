@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,20 @@
     <title>Violin Simulator</title>
     <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/index.css">
+    <script src="./scripts/index.js"></script>
+    <script src="./sweetalert2-11.4.14/package/dist/sweetalert2.all.js"></script>
 </head>
+
 <body>
     <div class="total">
-        <img src="./imgs/logo.png">
-        <button>Início</button>
-        <button>Cadastre-se</button>
-        <button>Sobre</button>
+        <div class="title">
+            <span>Violin Simulator</span>
+            <img src="./imgs/logo.png">
+        </div>
+        <button onclick="location.href='./login.html'">Início</button>
+        <button onclick="location.href = './cadastro.html'">Cadastre-se</button>
+        <button onclick="mostraAlert()">Sobre</button>
     </div>
 </body>
+
 </html>

@@ -1,0 +1,87 @@
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../imgs/backgroundCadastro.jpg');
+    background-size: cover;
+    width: calc(100vw - 100%);
+    height: 100vh ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: calc(100vw - 100%);
+    height:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linha{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.linha label{
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+h1{
+    font-size: 2em;
+    margin-bottom:0px;
+}
+h2{
+    font-size: 1.5em;
+    margin-top: 0px;
+}
+
+.inpt{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: whitesmoke;
+    align-items: center;
+    font-size: 16px;
+    border: 1px solid white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: whitesmoke;
+    font-size: 16px;
+    outline-style: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadastrar{
+    cursor: pointer;
+    width: 15%;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 10px;
+    background: #fff;
+    color: #000;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid gray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
