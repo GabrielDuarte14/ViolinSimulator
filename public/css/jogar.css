@@ -51,7 +51,7 @@
 .imgA{
    width: 35%; 
    margin-left: 400px;
-   margin-top: 90px;
+   margin-top: 78px;
    -webkit-animation-duration:2s;
    -webkit-animation-iteration-count:1;
    -webkit-animation-fill-mode: forwards;
@@ -69,7 +69,7 @@
 @-webkit-keyframes subir {
     from {
         margin-left: 400px;
-        margin-top: 90px;
+        margin-top: 78px;
     }
     to {
         margin-left: 190px;
@@ -83,6 +83,6 @@
     }
     to {
         margin-left: 400px;
-        margin-top: 90px;
+        margin-top: 78px;
     }
 }
