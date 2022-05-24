@@ -42,20 +42,20 @@
     align-items: center;
 }
 .imgV{
-    width: 60%;
-    align-self: center;
-    margin: auto;
-    margin-left: -20px;
-    margin-top: 40px;
+    width: 100%;
+
+  
 }
 .imgA{
-   width: 35%; 
-   margin-left: 400px;
-   margin-top: 78px;
+    position: absolute;
+ 
+    width: 60%;
    -webkit-animation-duration:2s;
    -webkit-animation-iteration-count:1;
    -webkit-animation-fill-mode: forwards;
-   position: absolute;
+   margin-left: -710px;
+    margin-top: 0px;
+   
 }
 .ponto{
     position: absolute;
@@ -67,22 +67,18 @@
 }
 
 @-webkit-keyframes subir {
-    from {
-        margin-left: 400px;
-        margin-top: 78px;
-    }
     to {
-        margin-left: 190px;
-        margin-top: -120px;
+        margin-left: -910px;
+        margin-top: -200px;
     }
 }
 @-webkit-keyframes descer {
     from {
-        margin-left: 190px;
-        margin-top: -120px;
+        margin-left: -910px;
+        margin-top: -200px;;
     }
     to {
-        margin-left: 400px;
-        margin-top: 78px;
+        margin-left: -710px;
+        margin-top: 10px;;
     }
 }

@@ -48,7 +48,7 @@ body{
     cursor: pointer;
 
 }
-.total button:hover{
+button:hover{
     background-color: whitesmoke;
     color: black;
     border: 2px solid black;
