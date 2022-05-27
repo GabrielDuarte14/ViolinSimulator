@@ -1,0 +1,67 @@
+body{
+     width: calc(100vw - 100%);
+    height: 100% ;
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: whitesmoke;
+}
+
+.parte1T{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('../imgs/backgroundSobre.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.parte1C{
+    display: flex;
+    width: 95%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.subt{
+    width: 80%;
+    text-align: start;
+}
+.container{
+    width: calc(100vw - 100%);
+    height: min-content;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+.conteudo1{
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: flex-start;
+}
+
+.img1{
+    width: 300px;
+
+}
+.texto{
+    max-width: 60%;
+    text-align: justify;
+ 
+}
