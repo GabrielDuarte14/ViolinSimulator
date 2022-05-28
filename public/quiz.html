@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | Violin Simulator</title>
+    <link rel="stylesheet" href="./css/sobre.css">
+    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/quiz.css">
+    <script src="./scripts/quiz.js"></script>
+</head>
+
+<body onload="pegarPerguntas()">
+    <div class="container">
+        <div class="titulo">
+            <h1>Pergunta</h1>
+        </div>
+        <div id="pergunta" class="pergunta">
+           
+          
+        </div>
+        <div class="opcoes">
+            <div class="opcao">
+                <input type="radio" name="opcao" id="opcao1" value="1">
+                <label id="label1" for="opcao1"></label>
+            </div>
+            <div class="opcao">
+                <input type="radio" name="opcao" id="opcao2" value="2">
+                <label id="label2" for="opcao2"></label>
+            </div>
+            <div class="opcao">
+                <input type="radio" name="opcao" id="opcao3" value="3">
+                <label id="label3" for="opcao3"></label>
+            </div>
+        </div>
+        <button class="btnProx" id="btnProx" onclick="proxima()">Próximo</button>
+    </div>
+</body>
+
+</html>

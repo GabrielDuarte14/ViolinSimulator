@@ -1,8 +1,3 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/* para workbench - local - desenvolvimento */
 CREATE DATABASE bdViolinSimulator;
 
 USE bdViolinSimulator;
@@ -12,31 +7,29 @@ CREATE TABLE tbUsuario(
     ,nomeUsuario VARCHAR(100)
     ,emailUsuario VARCHAR(100)
     ,senhaUsuario VARCHAR(30)
-)
-
-
-/* para sql server - remoto - produção */
-
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-); 
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
+CREATE TABLE tbPergunta(
+	idPergunta INT PRIMARY KEY AUTO_INCREMENT
+    ,pergunta VARCHAR(150)
+    ,respostaCerta VARCHAR(150)
+    ,respostaErrada1 VARCHAR(150)
+    ,respostaErrada2 VARCHAR(150)
 );
 
+CREATE TABLE tbQuiz(
+	idQuiz INT PRIMARY KEY AUTO_INCREMENT
+    ,qtdCertas INT
+    ,qtdErradas INT
+    ,fkUsuario INT
+    ,FOREIGN KEY (fkUsuario) REFERENCES tbUsuario(idUsuario)
+);
 
+INSERT INTO tbPergunta
+	VALUES (null, 'Quantas cordas tem no violino?','4','2','3')
+		   ,(null, 'Quantas linhas tem numa partitura?','5','3','2')
+		   ,(null, 'O violino toca em qual clave?','Clave de Sol','Clave de Lá','Clave de Dó')
+		   ,(null, 'Com quantos anos eu comecei a tocar violino?','11 anos','10 anos','5 anos')
+		   ,(null, 'Em qual ano comecei a aprender teoria musical?','2013','2010','2015');
+           
+SELECT * FROM tbUsuario;

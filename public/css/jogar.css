@@ -1,16 +1,21 @@
 .tocar{
     background-color: #574343;
     max-width: calc(100vw - (100vw - 100%));
-    height: 40vh;
+    height: 97.6vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: whitesmoke;
 }
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('../imgs/backJogar.jpg');
+    background-size: cover;
+   
+}
 .total{
     width: 95vw;
-    height:80vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
+
 }
 
 .title{
