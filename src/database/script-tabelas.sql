@@ -22,6 +22,7 @@ CREATE TABLE tbQuiz(
     ,qtdCertas INT
     ,qtdErradas INT
     ,fkUsuario INT
+    ,dataHora DATETIME
     ,FOREIGN KEY (fkUsuario) REFERENCES tbUsuario(idUsuario)
 );
 

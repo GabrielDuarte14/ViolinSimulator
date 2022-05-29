@@ -39,10 +39,23 @@ function cadastrar(nome, email, senha) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function cadastrarQuiz(qtdCertas, qtdErradas, fkUsuario ){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():");
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO tbQuiz (qtdCertas, qtdErradas, fkUsuario, dataHora) 
+        VALUES ('${qtdCertas}', '${qtdErradas}', '${fkUsuario}', NOW());
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    listarPerguntas
+    listarPerguntas,
+    cadastrarQuiz
 };

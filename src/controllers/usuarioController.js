@@ -108,11 +108,39 @@ function cadastrar(req, res) {
             );
     }
 }
+function quiz(req, res) {
+    /*
+        ,qtdCertas INT
+    ,qtdErradas INT
+    ,fkUsuario INT
+    ,dataHora DATETIME
+    */
+    var qtdCertas = req.body.qtdCertas;
+    var qtdErradas = req.body.qtdErradas;
+    var fkUsuario = req.body.fkUsuario;
+    usuarioModel.cadastrarQuiz(qtdCertas, qtdErradas, fkUsuario)
+    .then(
+        function (resultado) {
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
-    listarPerguntas
+    listarPerguntas,
+    quiz
 }
