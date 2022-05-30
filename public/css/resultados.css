@@ -1,0 +1,7 @@
+.resultado{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+

@@ -136,6 +136,28 @@ function renderizarPergunta(){
 }
 
 function finalizar(){
+    var op1 = document.getElementById("opcao1");
+    var op2 = document.getElementById("opcao2");
+    var op3 = document.getElementById("opcao3");
+    var op = 0;
+    if(op1.checked){
+        op = op1.value;
+        
+    }else if(op2.checked){
+        op = op2.value;
+    }else if(op3.checked){
+        op = op3.value;
+    }else{
+        alert('Selecione uma resposta');
+    }
+    
+    if(op == respostas[numero]){
+        respostasCertas++;
+    }else{
+        respostasErradas++;
+    }
+
+
 
     var dados = sessionStorage.USUARIO;
         var usuario = JSON.parse(dados);

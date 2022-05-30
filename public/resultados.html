@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,108 @@
     <title>Resultados | Violin Simulator</title>
     <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/cadastro.css">
-    <link rel="stylesheet" href="./css/resultado.css">
-    <script src="./scripts/resultados.js"></script>
+    <link rel="stylesheet" href="./css/resultados.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body onload="carregarDados()">
-    <div class="container">
-        <h1>Olá, <span id="nomeSessao"></span></h1>
-        <span class="escolhe">Escolha o modo que deseja jogar: </span>
-        <a href="quiz.html" class="link"><button class="botao">Quiz</button></a>
-        <a href="jogar.html" class="link"><button class="botao">Tocar Violino</button></a>
+    <div class="container" id="result" style="display: none;">
+        <div class="titulo">
+            <h1>Seus Resultados</h1>
+        </div>
+        <div class="resultado">
+            <canvas id="myChart" class="grafico"></canvas>
+        </div>
+        <button class="btnProx" id="btnProx">Logout</button>
     </div>
+    <div class="container" id="aguardar">
+   <h1>Carregando resultados</h1>
+    <img src="imgs/carregando.gif" alt="">
+    
+</div>
 </body>
+
 </html>
+<script>
+    var sessionUsuario = sessionStorage.USUARIO;
+    var usuario = JSON.parse(sessionUsuario);
+    var labels = [];
+    var dadosCertas = [];
+    var dadosErradas = [];
+
+    function carregarDados() {
+        fetch("/usuarios/quizDados", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkUsuario: usuario.idUsuario,
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    //console.log(json);
+                    console.log(JSON.stringify(json));
+                    json.forEach(element => {
+                        console.log(element.datahora)
+                        var data = element.datahora.split(" ");
+                        var novaData = new Date(data);
+                        var novaHora = novaData.getHours();
+                        var dataFormatada = novaData.toLocaleDateString();
+                        var horaFormatada = novaHora + ":" + novaData.getMinutes();
+                        if (novaData.getHours() < 10) {
+                            horaFormatada = "0" + novaHora + ":" + novaData.getMinutes();
+                        }
+                        if (novaData.getMinutes() < 10) {
+                            horaFormatada = novaHora + ":" + "0" + novaData.getMinutes();
+                        }
+                        dadosCertas.push(element.qtdCertas)
+                        dadosErradas.push(element.qtdErradas)
+                        console.log(dataFormatada + " " + horaFormatada);
+                        labels.push(dataFormatada + " " + horaFormatada);
+                    });
+                });
+
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+    }
+
+    setTimeout(function () {
+        const data = {
+            labels: labels,
+            datasets: [{
+                    label: 'Quantidade de acertos',
+                    backgroundColor: '#00FF00',
+                    borderColor: '#ff5248',
+                    data: dadosCertas
+                },
+                {
+                    label: 'Quantidade de erros',
+                    backgroundColor: '#FF0000',
+                    borderColor: '#ff5248',
+                    data: dadosErradas
+                }
+            ]
+
+
+
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {}
+        };
+        const myChart = new Chart(document.getElementById('myChart'), config);
+        document.getElementById("aguardar").style.display = "none";
+        document.getElementById("result").style.display = "flex";
+    }, 2000);
+</script>
+<script>
+
+</script>

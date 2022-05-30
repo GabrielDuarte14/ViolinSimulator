@@ -9,6 +9,18 @@ function listar() {
     return database.executar(instrucao);
 }
 
+function quizDados(fkUsuario){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():");
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        SELECT * FROM tbQuiz WHERE fkUsuario = '${fkUsuario}' ORDER BY dataHora;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function listarPerguntas() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
@@ -57,5 +69,6 @@ module.exports = {
     cadastrar,
     listar,
     listarPerguntas,
-    cadastrarQuiz
+    cadastrarQuiz,
+    quizDados
 };

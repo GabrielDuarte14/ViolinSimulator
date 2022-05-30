@@ -28,4 +28,8 @@ router.post("/quiz", function (req, res) {
     usuarioController.quiz(req, res);
 });
 
+router.post("/quizDados", function (req, res) {
+    usuarioController.quizDados(req, res);
+});
+
 module.exports = router;

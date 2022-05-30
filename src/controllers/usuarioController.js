@@ -7,6 +7,25 @@ function testar(req, res) {
     res.json("ESTAMOS FUNCIONANDO!");
 }
 
+function quizDados(req, res) {
+    var fkUsuario = req.body.fkUsuario;
+    usuarioModel.quizDados(fkUsuario)
+    .then(
+        function (resultado) {
+            res.status(200).json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
 function listar(req, res) {
     usuarioModel.listar()
         .then(function (resultado) {
@@ -142,5 +161,6 @@ module.exports = {
     listar,
     testar,
     listarPerguntas,
-    quiz
+    quiz,
+    quizDados
 }
