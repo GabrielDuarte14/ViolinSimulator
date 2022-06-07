@@ -36,7 +36,7 @@ function entrar() {
             emailServer: emailVar,
             senhaServer: senhaVar
         })
-    }).then(function (resposta) {
+    }).then(function(resposta) {
         console.log("ESTOU NO THEN DO entrar()!")
 
         if (resposta.ok) {
@@ -50,7 +50,7 @@ function entrar() {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
 
-                setTimeout(function () {
+                setTimeout(function() {
                     window.location = "./escolheJogo.html";
                 }, 1000); // apenas para exibir o loading
 
@@ -58,7 +58,7 @@ function entrar() {
 
         } else {
 
-           msgErro.style.display = "block"
+            msgErro.style.display = "block"
             msgErro.innerHTML = "Usuário ou senha inválidos!";
 
             resposta.text().then(texto => {
@@ -67,7 +67,7 @@ function entrar() {
             });
         }
 
-    }).catch(function (erro) {
+    }).catch(function(erro) {
         console.log(erro);
     })
 
@@ -77,6 +77,7 @@ function entrar() {
 function sumirMensagem() {
     msgErro.style.display = "none"
 }
+
 function aguardar() {
     espera.style.display = "block";
 }
@@ -84,6 +85,7 @@ function aguardar() {
 function finalizarAguardar() {
     espera.style.display = "none";
 }
+
 function validarSessao() {
     aguardar();
 
@@ -103,8 +105,8 @@ function validarSessao() {
 }
 
 function sair() {
-    aguardar();
+
     sessionStorage.clear();
-    finalizarAguardar();
-    window.location = "login.html";
+
+    window.location = "index.html";
 }

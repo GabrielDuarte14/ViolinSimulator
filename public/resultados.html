@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/cadastro.css">
     <link rel="stylesheet" href="./css/resultados.css">
+    <script src="./scripts/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -18,15 +19,28 @@
             <h1>Seus Resultados</h1>
         </div>
         <div class="resultado">
-            <canvas id="myChart" class="grafico"></canvas>
+            <div id="conteudoResultado" class="conteudoResultado">
+               
+            </div>
+            <div class="grafico">
+                <canvas id="myChart" class="grafico"></canvas>
+            </div>
         </div>
-        <button class="btnProx" id="btnProx">Logout</button>
+        <div class="menu">
+            <button class="btns" onclick="sair()" id="btnProx">Sair</button></a>
+            <button class="btns" onclick="location.href = './index.html'">Menu Principal</button>
+            <button class="btns" onclick="location.href = './jogar.html'">Tocar Violino</button>
+        </div>
     </div>
+
+
+
+
     <div class="container" id="aguardar">
-   <h1>Carregando resultados</h1>
-    <img src="imgs/carregando.gif" alt="">
-    
-</div>
+        <h1>Carregando resultados</h1>
+        <img src="imgs/carregando.gif" alt="">
+
+    </div>
 </body>
 
 </html>
@@ -46,7 +60,7 @@
             body: JSON.stringify({
                 fkUsuario: usuario.idUsuario,
             })
-        }).then(function (resposta) {
+        }).then(function(resposta) {
             if (resposta.ok) {
                 console.log(resposta);
 
@@ -55,7 +69,8 @@
                     console.log(JSON.stringify(json));
                     json.forEach(element => {
                         console.log(element.datahora)
-                        var data = element.datahora.split(" ");
+                        var data = element.dataHora + '';
+                        data = data.split(" ")
                         var novaData = new Date(data);
                         var novaHora = novaData.getHours();
                         var dataFormatada = novaData.toLocaleDateString();
@@ -68,48 +83,91 @@
                         }
                         dadosCertas.push(element.qtdCertas)
                         dadosErradas.push(element.qtdErradas)
+                        
                         console.log(dataFormatada + " " + horaFormatada);
                         labels.push(dataFormatada + " " + horaFormatada);
                     });
+                    var acertoss = dadosCertas[dadosCertas.length - 1];
+                    if(acertoss == 0) {
+                        conteudoResultado.innerHTML = ` <p>Você foi mal :( Acertou <span id="acertos"> </span>${acertoss}/5</p>`
+                    }else if(acertoss<=3){
+                        conteudoResultado.innerHTML = ` <p>Dá pra melhorar né :') Acertou <span id="acertos">${acertoss}</span>/5</p>`
+                    }else{
+                        conteudoResultado.innerHTML = ` <p>Parabéns! Você é um mestre! Acertou <span id="acertos">${acertoss}</span>/5</p>`
+                    }
+                    
+                    
                 });
 
             }
-        }).catch(function (erro) {
+        }).catch(function(erro) {
             console.log(erro);
         });
     }
 
-    setTimeout(function () {
-        const data = {
-            labels: labels,
-            datasets: [{
-                    label: 'Quantidade de acertos',
-                    backgroundColor: '#00FF00',
-                    borderColor: '#ff5248',
-                    data: dadosCertas
+    setTimeout(function() {
+            const data = {
+                labels: labels,
+                datasets: [{
+                        label: 'Quantidade de acertos',
+                        backgroundColor: '#00FF00',
+                        borderColor: '#ff5248',
+                        data: dadosCertas
+                    }, {
+                        label: 'Quantidade de erros',
+                        backgroundColor: '#FF0000',
+                        borderColor: '#ff5248',
+                        data: dadosErradas
+                    }
+
+                ],
+
+
+
+            };
+
+            var options = {
+                responsive: true,
+                plugins: { // 'legend' now within object 'plugins {}'
+                    legend: {
+                        labels: {
+                            color: "white", // not 'fontColor:' anymore
+                            // fontSize: 18  // not 'fontSize:' anymore
+                            font: {
+                                size: 15 // 'size' now within object 'font {}'
+                            }
+                        }
+                    }
+
                 },
-                {
-                    label: 'Quantidade de erros',
-                    backgroundColor: '#FF0000',
-                    borderColor: '#ff5248',
-                    data: dadosErradas
+
+                scales: {
+                    y: {
+                        ticks: {
+                            color: '#FFF',
+                            beginAtZero: true,
+
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#fff',
+                            beginAtZero: true
+                        }
+                    }
                 }
-            ]
+            };
+            const config = {
+                type: 'bar',
+                data: data,
+                options: options
 
-
-
-        };
-
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {}
-        };
-        const myChart = new Chart(document.getElementById('myChart'), config);
-        document.getElementById("aguardar").style.display = "none";
-        document.getElementById("result").style.display = "flex";
-    }, 2000);
+            };
+            const myChart = new Chart(document.getElementById('myChart'), config);
+            document.getElementById("aguardar").style.display = "none";
+            document.getElementById("result").style.display = "flex";
+        },
+        2000);
 </script>
 <script>
-
 </script>

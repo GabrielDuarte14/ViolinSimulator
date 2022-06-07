@@ -1,7 +1,52 @@
-.resultado{
+.grafico{
     width: 600px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 }
+.resultado{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.container{
+    justify-content: space-evenly;
+    height: 100%;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+.btns{
+    width: 200px;
+    height: 50px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
 
+}
+.btns:hover{
+    background-color: whitesmoke;
+    color: black;
+    border: 2px solid black;
+}
+.btns a{
+    text-decoration: none !important;
+    color: inherit;
+    height: 100%;
+    width: 100%;
+    
+}
+a:visited{
+    color: whitesmoke;
+}
