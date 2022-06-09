@@ -33,4 +33,7 @@ INSERT INTO tbPergunta
 		   ,(null, 'Com quantos anos eu comecei a tocar violino?','11 anos','10 anos','5 anos')
 		   ,(null, 'Em qual ano comecei a aprender teoria musical?','2013','2010','2015');
            
+           
 SELECT * FROM tbQuiz ORDER BY dataHora;
+
+select * from tbUsuario
