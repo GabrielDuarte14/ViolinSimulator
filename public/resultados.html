@@ -28,7 +28,7 @@
         </div>
         <div class="menu">
             <button class="btns" onclick="sair()" id="btnProx">Sair</button></a>
-            <button class="btns" onclick="location.href = './index.html'">Menu Principal</button>
+            <button class="btns" onclick="location.href = './escolheJogo.html'">Menu Principal</button>
             <button class="btns" onclick="location.href = './jogar.html'">Tocar Violino</button>
         </div>
     </div>
@@ -69,9 +69,10 @@
                     console.log(JSON.stringify(json));
                     json.forEach(element => {
                         console.log(element.datahora)
-                        var data = element.dataHora + '';
+                        var data = element.datahora + '';
                         data = data.split(" ")
                         var novaData = new Date(data);
+                        console.log(novaData)
                         var novaHora = novaData.getHours();
                         var dataFormatada = novaData.toLocaleDateString();
                         var horaFormatada = novaHora + ":" + novaData.getMinutes();

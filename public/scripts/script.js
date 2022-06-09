@@ -142,14 +142,6 @@ function levantou(){
         miM.style.display = "none";
         faM.style.display = "none";
         solM.style.display = "none";
-
-
-
-
-
-
-
-
         aud.pause();
         aud = '';
         if(subindo) subindo = false;
